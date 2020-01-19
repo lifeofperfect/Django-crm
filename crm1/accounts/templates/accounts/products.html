@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{%  extends 'base.html' %}
 
 {% block content %}
 
@@ -16,13 +16,15 @@
 							<th>Category</th>
 							<th>Price</th>
 						</tr>
-                        {% for product in products %}
-                            <tr>
-                                <td>{{ product.name }}</td>
-                                <td>{{ product.category }}</td>
-                                <td>{{ product.price }}</td>
-                            </tr>
-                        {% endfor %}
+
+						{% for i in products %}
+							<tr>
+								<td>{{i.name}}</td>
+								<td>{{i.category}}</td>
+								<td>{{i.price}}</td>
+							</tr>
+						{% endfor %}
+						
 					</table>
 				</div>
 			</div>

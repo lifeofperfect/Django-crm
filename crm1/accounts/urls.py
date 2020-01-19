@@ -1,10 +1,16 @@
-from django.urls import path
 
-from .views import index, customer, products
+from django.urls import path
+from . import views
 
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('customer/<int:pk>', customer, name='customer'),
-    path('products', products, name='products')
+    path('', views.home, name="home"),
+    path('products/', views.products, name='products'),
+    path('customer/<str:pk_test>/', views.customer, name="customer"),
+
+    path('create_order/<str:pk>/', views.createOrder, name="create_order"),
+    path('update_order/<str:pk>/', views.updateOrder, name="update_order"),
+    path('delete_order/<str:pk>/', views.deleteOrder, name="delete_order"),
+
+
 ]
