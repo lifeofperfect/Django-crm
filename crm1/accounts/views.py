@@ -21,9 +21,16 @@ def index(request):
         
     return render(request, template_name, context)
 
-def customer(request):
+def customer(request, pk):
+    customers = Customer.objects.get(id=pk)
+    orders = customers.order_set.all()
     template_name = 'accounts/customer.html'
-    return render(request, template_name)
+    context = {
+        'customers':customers,
+        'orders':orders,
+
+    }
+    return render(request, template_name, context)
 
 def products(request):
     products = Product.objects.all()
